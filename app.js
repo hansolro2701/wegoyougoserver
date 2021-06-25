@@ -2,6 +2,8 @@ const express = require('express');
 const app = express();
 const session = require('express-session');
 const fs = require('fs');
+const PORT = process.env.port || 3000;
+
 
 app.use(session({
   secret: 'secret code',
@@ -17,7 +19,7 @@ app.use(express.json({
   limit: '50mb'
 }));
 
-const server = app.listen(process.env.port || 3000, () => {
+const server = app.listen(PORT, () => {
   console.log('Server started. port 3000.');
 });
 
